@@ -28,7 +28,7 @@ public class CapitalizeFirstAndLastCharacter {
 			{
 				char firstLetter=(char)(word.charAt(0)-32);
 				String middleLetters=word.substring(1,word.length()-1);
-				char lastLetter=(char)(word.charAt(word.length()-1));
+				char lastLetter=(char)(word.charAt(word.length()-1)-32);
 				result.append(firstLetter).append(middleLetters).append(lastLetter);
 			}
 			else
