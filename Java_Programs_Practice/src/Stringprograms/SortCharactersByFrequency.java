@@ -9,7 +9,7 @@ public class SortCharactersByFrequency {
 
 	public static void main(String[] args) {
 		
-		String s = "cccaaa";
+		String s = "ccccaaa";
 		sortChar1(s);
 		sortChar2(s);
 	}

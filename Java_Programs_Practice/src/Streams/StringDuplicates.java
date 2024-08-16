@@ -12,13 +12,18 @@ public class StringDuplicates {
 		Map<Character, Long> charCount = str.chars().mapToObj(c -> (char)c)
 		.collect(Collectors.groupingBy(c-> c,Collectors.counting()));
 		
-		charCount.forEach((character,frequency) ->{
-			
-			if(frequency>1)
-			{
-				System.out.println(character+" "+frequency);
-			}
-		});
+		charCount.entrySet()
+				 .stream()
+				 .filter(freq -> freq.getValue()>1)
+				 .map(val->val.getKey())
+				 .forEach(System.out::println);
+//		charCount.forEach((character,frequency) ->{
+//			
+//			if(frequency>1)
+//			{
+//				System.out.println(character+" "+frequency);
+//			}
+//		});
 
 	}
 }

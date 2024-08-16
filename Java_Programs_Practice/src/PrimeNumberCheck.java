@@ -4,7 +4,7 @@ public class PrimeNumberCheck {
 	public static void main(String[] args) {
 		
 		System.out.println(primeCheck(78));
-		System.out.println(primeCheck(7));
+		System.out.println(primeCheck(2));
 	}
 	
 	public static boolean primeCheck(int num)

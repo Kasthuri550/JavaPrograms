@@ -9,12 +9,14 @@ public class RemoveDuplicates {
 		int arr[]= {3,4,5,9,2,1,1,2};
 		
 //		int length=approach1(arr);
-		int length=approach2(arr);
+//		int length=approach2(arr);
+		int[] copyOf = Arrays.copyOf(arr,arr.length);
+		System.out.println(Arrays.toString(copyOf));
 		
-		for(int i=0;i<length;i++)
-		{
-			System.out.print(arr[i]+" ");
-		}
+//		for(int i=0;i<length;i++)
+//		{
+//			System.out.print(arr[i]+" ");
+//		}
 		
 	}
 
