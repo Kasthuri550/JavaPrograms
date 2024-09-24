@@ -1,16 +1,14 @@
 package DynamicProgramming.subsequences;
 
-import java.util.Arrays;
-
 public class SubsetSumEqualToTarget {
 
 	public static void main(String[] args) {
 
 		int N = 6,arr[] = {3, 34, 4, 12, 5, 2},sum = 9;
 
-//		System.out.println(subsetSumEqualToTargetRecurrsion(arr,sum,N-1));
-//		System.out.println(subsetSumEqualToTargetMemoization(arr,sum, N-1));
-//		System.out.println(subsetSumEqualToTargetTabulation(arr, sum,N));
+		System.out.println(subsetSumEqualToTargetRecurrsion(arr,sum,N-1));
+		System.out.println(subsetSumEqualToTargetMemoization(arr,sum, N-1));
+		System.out.println(subsetSumEqualToTargetTabulation(arr, sum,N));
 		System.out.println(subsetSumEqualToTargetSpaceOptimized(arr, sum, N));
 
 	}
@@ -82,23 +80,23 @@ public class SubsetSumEqualToTarget {
 
 	private static boolean subsetSumEqualToTargetMemoization(int[] arr, int sum, int n) {
 
-		int dp[][]=new int[n+1][sum+1];
+		Boolean dp[][]=new Boolean[n+1][sum+1];
 
-		for(int row[]:dp)
-		{
-			Arrays.fill(row,-1);
-		}
+//		for(int row[]:dp)
+//		{
+//			Arrays.fill(row,-1);
+//		}
 
 		return subsetSumEqualToTargetMemo(arr, sum, n,dp);
 	}
 
-	private static boolean subsetSumEqualToTargetMemo(int[] arr, int sum, int n, int[][] dp) {
+	private static boolean subsetSumEqualToTargetMemo(int[] arr, int sum, int n, Boolean[][] dp) {
 
 		if(sum==0) return true;
 
 		if(n==0) return arr[0]==sum;
 		
-		if(dp[n][sum]!=-1) return dp[n][sum]==0?false:true;
+		if(dp[n][sum]!=null) return dp[n][sum];
 
 		boolean notTake=subsetSumEqualToTargetMemoization(arr, sum, n-1);
 		boolean take=false;
@@ -108,8 +106,7 @@ public class SubsetSumEqualToTarget {
 			take=subsetSumEqualToTargetMemoization(arr, sum-arr[n], n-1);
 		}
 		
-		dp[n][sum]=notTake||take?1:0;
-		return notTake||take;
+		return dp[n][sum]=notTake||take;
 	}
 
 	private static boolean subsetSumEqualToTargetRecurrsion(int[] arr, int sum, int n) {

@@ -8,24 +8,24 @@ public class CountPartitionsWithGivenDifference {
 
 		int n = 4,d = 3,arr[] =  { 5, 2, 6, 4};
 
-//		System.out.println(countPartitionsWithGivenDifferenceRecurrsion(arr,n-1,d));
-//		System.out.println(countPartitionsWithGivenDifferenceMemoization(arr, n-1, d));
-//		System.out.println(countPartitionsWithGivenDifferenceTabulation(arr, n-1, d));
-		System.out.println(countPartitionsWithGivenDifferenceSpaceOptimized(arr, n-1, d));
+		System.out.println(countPartitionsWithGivenDifferenceRecurrsion(arr,n,d));
+		System.out.println(countPartitionsWithGivenDifferenceMemoization(arr, n, d));
+		System.out.println(countPartitionsWithGivenDifferenceTabulation(arr, n, d));
+		System.out.println(countPartitionsWithGivenDifferenceSpaceOptimized(arr, n, d));
 	}
 
 	private static int countPartitionsWithGivenDifferenceSpaceOptimized(int[] arr, int n, int d) {
 		
 		int totalSum=0;
 		
-		for(int i=0;i<=n;i++)
+		for(int i=0;i<n;i++)
 		{
 			totalSum+=arr[i];
 		}
 		
 		if((totalSum-d)<0 && (totalSum-d)%2==1) return 0;
 		
-		return countPartitionsSpaceOptimized(arr,n,(totalSum-d)/2);
+		return countPartitionsSpaceOptimized(arr,n-1,(totalSum-d)/2);
 	}
 
 	private static int countPartitionsSpaceOptimized(int[] arr, int n, int target) {
@@ -63,14 +63,14 @@ public class CountPartitionsWithGivenDifference {
 		
 		int totalSum=0;
 		
-		for(int i=0;i<=n;i++)
+		for(int i=0;i<n;i++)
 		{
 			totalSum+=arr[i];
 		}
 		
 		if((totalSum-d)<0 && (totalSum-d)%2==1) return 0;
 		
-		return countPartitionsTabulation(arr, n,(totalSum-d)/2);	
+		return countPartitionsTabulation(arr, n-1,(totalSum-d)/2);	
 	}
 
 	private static int countPartitionsTabulation(int[] arr, int n, int target) {
@@ -107,14 +107,14 @@ public class CountPartitionsWithGivenDifference {
 
 		int totalSum=0;
 
-		for(int i=0;i<=n;i++)
+		for(int i=0;i<n;i++)
 		{
 			totalSum+=arr[i];
 		}
 
 		if((totalSum-d)<0 && (totalSum-d)%2==1) return 0;
 		
-		return countPartitionsMemoDp(arr, n, (totalSum-d)/2);	
+		return countPartitionsMemoDp(arr, n-1, (totalSum-d)/2);	
 
 	}
 
@@ -158,14 +158,14 @@ public class CountPartitionsWithGivenDifference {
 
 		int totalSum=0;
 
-		for(int i=0;i<=n;i++)
+		for(int i=0;i<n;i++)
 		{
 			totalSum+=arr[i];
 		}
 
 		if((totalSum-d)<0 && (totalSum-d)%2==1) return 0;
 
-		return countPartitionsRecurrsion(arr, n, (totalSum-d)/2);	
+		return countPartitionsRecurrsion(arr, n-1, (totalSum-d)/2);	
 	}
 
 	private static int countPartitionsRecurrsion(int[] arr, int n, int target) {

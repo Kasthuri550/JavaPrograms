@@ -11,8 +11,8 @@ public class CountsSubsetsWithSumK {
 		
 //		System.out.println(countsSubsetsWithSumKRecurrsion(arr,arr.length-1,sum));
 //		System.out.println(countsSubsetsWithSumKMemoization(arr,arr.length-1, sum));
-		System.out.println(countsSubsetsWithSumKTabulation(arr,arr.length-1, sum));
-//		System.out.println(countsSubsetsWithSumKSpaceOptimized(arr,arr.length-1, sum));
+		System.out.println(countsSubsetsWithSumKTabulation(arr,arr.length, sum));
+		System.out.println(countsSubsetsWithSumKSpaceOptimized(arr,arr.length-1, sum));
 
 	}
 
@@ -21,12 +21,13 @@ public class CountsSubsetsWithSumK {
 		int prev[]=new int[sum+1];
 		int curr[]=new int[sum+1];
 		
-		prev[0]=curr[0]=1;
+		prev[0]=1;
 		
 		if(arr[0]<=sum) prev[arr[0]]=1;
 		
 		for(int i=1;i<n;i++)
 		{
+			curr[0]=1;
 			for(int j=1;j<=sum;j++)
 			{
 				int notTaken=prev[j];
@@ -47,7 +48,7 @@ public class CountsSubsetsWithSumK {
 
 	private static int countsSubsetsWithSumKTabulation(int[] arr, int n, int sum) {
 		
-		int dp[][]=new int[n+1][sum+1];
+		int dp[][]=new int[n][sum+1];
 		
 		for(int i=0;i<n;i++)
 		{
@@ -56,9 +57,9 @@ public class CountsSubsetsWithSumK {
 				
 		if(arr[0]<=sum) dp[0][arr[0]]=1;
 		
-		for(int i=1;i<=n;i++)
+		for(int i=1;i<n;i++)
 		{
-			for(int j=0;j<=sum;j++)
+			for(int j=1;j<=sum;j++)
 			{
 				int notTake=dp[i-1][j];
 				int take=0;
@@ -72,7 +73,7 @@ public class CountsSubsetsWithSumK {
 			}
 		}
 		
-		return dp[n][sum];
+		return dp[n-1][sum];
 	}
 
 	private static int countsSubsetsWithSumKMemoization(int[] arr, int n, int sum) {

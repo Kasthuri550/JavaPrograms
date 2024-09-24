@@ -8,9 +8,9 @@ public class MinimumCoins {
 		
 		int arr[] = {1, 2, 5}, amount = 11;
 		
-//		System.out.println(minimumCoinsRecurrsion(arr,arr.length-1,amount));
-//		System.out.println(minimumCoinsMemoization(arr,arr.length-1, amount));
-//		System.out.println(minimumCoinsTabulation(arr,arr.length, amount));
+		System.out.println(minimumCoinsRecurrsion(arr,arr.length-1,amount));
+		System.out.println(minimumCoinsMemoization(arr,arr.length, amount));
+		System.out.println(minimumCoinsTabulation(arr,arr.length, amount));
 		System.out.println(minimumCoinsSpaceOptimized(arr,arr.length, amount));
 	}
 
@@ -80,14 +80,14 @@ public class MinimumCoins {
 
 	private static int minimumCoinsMemoization(int[] arr, int n, int amount) {
 		
-		int dp[][]=new int[n+1][amount+1];
+		int dp[][]=new int[n][amount+1];
 		
 		for(int row[]:dp)
 		{
 			Arrays.fill(row,-1);
 		}
 		
-		return minimumCoinsMemo(arr, n, amount,dp);
+		return minimumCoinsMemo(arr, n-1, amount,dp);
 	}
 
 	private static int minimumCoinsMemo(int[] arr, int n, int amount, int[][] dp) {

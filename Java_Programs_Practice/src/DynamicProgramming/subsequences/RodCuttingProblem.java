@@ -8,11 +8,11 @@ public class RodCuttingProblem {
 
 		int N = 8,price[] = {1, 5, 8, 9, 10, 17, 17, 20};
 
-		//		System.out.println(rodCuttingProblemRecurrsion(N-1,N,price));
-		//		System.out.println(rodCuttingProblemMemoization(N-1,N,price));
-		//		System.out.println(rodCuttingProblemTabulation(N-1,N,price));
-		//		System.out.println(rodCuttingProblemSpaceOptimized(N-1,N, price));
-		System.out.println(rodCuttingProblemSpaceOptimizedMore(N-1, N, price));
+		System.out.println(rodCuttingProblemRecurrsion(N-1,N,price));
+		System.out.println(rodCuttingProblemMemoization(N,N,price));
+		System.out.println(rodCuttingProblemTabulation(N,N,price));
+		System.out.println(rodCuttingProblemSpaceOptimized(N,N, price));
+		System.out.println(rodCuttingProblemSpaceOptimizedMore(N, N, price));
 	}
 
 	private static int rodCuttingProblemSpaceOptimizedMore(int index, int n, int[] price) {
@@ -101,14 +101,14 @@ public class RodCuttingProblem {
 
 	private static int rodCuttingProblemMemoization(int index, int n, int[] price) {
 
-		int dp[][]=new int[index+1][n+1];
+		int dp[][]=new int[index][n+1];
 
 		for(int row[]:dp)
 		{
 			Arrays.fill(row,-1);
 		}
 
-		return rodCuttingProblemMemo(index, n, price,dp);
+		return rodCuttingProblemMemo(index-1, n, price,dp);
 	}
 
 	private static int rodCuttingProblemMemo(int index, int n, int[] price, int[][] dp) {

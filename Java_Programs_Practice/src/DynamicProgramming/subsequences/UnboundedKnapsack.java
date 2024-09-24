@@ -8,9 +8,9 @@ public class UnboundedKnapsack {
 		
 		int N = 2,W = 3,val[] = {1, 1},wt[] = {2, 1};
 		
-//		System.out.println(unboundedKnapsackRecurrsion(N-1,W,wt,val));		
-//		System.out.println(unboundedKnapsackMemoization(N-1, W, wt, val));
-//		System.out.println(unboundedKnapsackTabulation(N, W, wt, val));
+		System.out.println(unboundedKnapsackRecurrsion(N-1,W,wt,val));		
+		System.out.println(unboundedKnapsackMemoization(N, W, wt, val));
+		System.out.println(unboundedKnapsackTabulation(N, W, wt, val));
 		System.out.println(unboundedKnapsackSpaceOptimized(N, W, wt, val));
 		System.out.println(unboundedKnapsackSpaceOptimized2(N, W, wt, val));
 	}
@@ -100,13 +100,13 @@ public class UnboundedKnapsack {
 
 	private static int unboundedKnapsackMemoization(int n, int w, int[] wt, int[] val) {
 		
-		int dp[][]=new int[n+1][w+1];
+		int dp[][]=new int[n][w+1];
 		
 		for(int row[]:dp)
 		{
 			Arrays.fill(row,-1);
 		}
-		return unboundedKnapsackMemo(n, w, wt, val,dp);
+		return unboundedKnapsackMemo(n-1, w, wt, val,dp);
 	}
 
 	private static int unboundedKnapsackMemo(int n, int w, int[] wt, int[] val, int[][] dp) {

@@ -8,9 +8,9 @@ public class CoinChange {
 		
 		int N = 3, sum = 4,coins[] = {1,2,3};
 		
-//		System.out.println(coinChangeRecurrsion(coins,N-1,sum));
-//		System.out.println(coinChangeMemoization(coins,N-1, sum));
-//		System.out.println(coinChangeTabulation(coins,N,sum));
+		System.out.println(coinChangeRecurrsion(coins,N-1,sum));
+		System.out.println(coinChangeMemoization(coins,N, sum));
+		System.out.println(coinChangeTabulation(coins,N,sum));
 		System.out.println(coinChangeSpaceOptimized(coins,N,sum));
 	}
 
@@ -72,14 +72,14 @@ public class CoinChange {
 
 	private static int coinChangeMemoization(int[] coins, int n, int sum) {
 		
-		int dp[][]=new int[n+1][sum+1];
+		int dp[][]=new int[n][sum+1];
 		
 		for(int row[]:dp)
 		{
 			Arrays.fill(row,-1);
 		}
 		
-		return coinChangeMemo(coins, n, sum,dp);
+		return coinChangeMemo(coins, n-1, sum,dp);
 	}
 
 	private static int coinChangeMemo(int[] coins, int n, int sum,int dp[][]) {
@@ -91,11 +91,11 @@ public class CoinChange {
 		
 		if(dp[n][sum]!=-1) return dp[n][sum];
 		
-		int notTake=coinChangeMemoization(coins, n-1, sum);
+		int notTake=coinChangeMemo(coins, n-1, sum,dp);
 		int take=0;
 		if(coins[n]<=sum)
 		{
-			take=coinChangeMemoization(coins,n, sum-coins[n]);
+			take=coinChangeMemo(coins,n, sum-coins[n],dp);
 		}
 		return dp[n][sum]=notTake+take;
 	}
@@ -111,6 +111,7 @@ public class CoinChange {
 		int take=0;
 		if(coins[n]<=sum)
 		{
+			
 			take=coinChangeRecurrsion(coins,n, sum-coins[n]);
 		}
 		
