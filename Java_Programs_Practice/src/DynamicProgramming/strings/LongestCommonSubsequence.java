@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package DynamicProgramming.strings;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ public class LongestCommonSubsequence {
         String s2 = "ced";
         
         System.out.println(lcsBrute(s1.length()-1,s2.length()-1,s1,s2));
-        System.out.println(lcsMemoization(s1.length()-1,s2.length()-1, s1, s2));
+        System.out.println(lcsMemoization(s1.length(),s2.length(), s1, s2));
         System.out.println(lcsTabulation(s1.length(),s2.length(),s1,s2));
         System.out.println(lcsSpaceOptimized(s1.length(),s2.length(),s1,s2));
 		
@@ -18,7 +18,7 @@ public class LongestCommonSubsequence {
 
 	private static int lcsSpaceOptimized(int m, int n, String s1, String s2) {
 		
-		int prev[]=new int[m+1];
+		int prev[]=new int[n+1];
 		int curr[]=new int[n+1];
 		
 		for(int i=1;i<=m;i++)
@@ -33,7 +33,7 @@ public class LongestCommonSubsequence {
 			
 			prev=curr;
 		}
-		return prev[m];
+		return prev[n];
 	}
 
 	private static int lcsTabulation(int m, int n, String s1, String s2) {
@@ -57,13 +57,13 @@ public class LongestCommonSubsequence {
 	private static int lcsMemoization(int m, int n, String s1, String s2) {
 		
 		
-		int dp[][]=new int[m+1][n+1];
+		int dp[][]=new int[m][n];
 		for(int row[]:dp)
 		{
 			Arrays.fill(row,-1);
 		}
 		
-		return lcsMemoHelper(m,n,s1,s2,dp);
+		return lcsMemoHelper(m-1,n-1,s1,s2,dp);
 	}
 
 	private static int lcsMemoHelper(int m, int n, String s1, String s2, int[][] dp) {
