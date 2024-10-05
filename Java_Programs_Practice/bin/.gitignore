@@ -1,10 +1,10 @@
-/Animal.class
+/ArrayPractice/
+/ArraySort.class
 /Arrayprograms/
 /Basicmaths/
 /BinarySearch.class
 /BinarySearch/
 /BubbleSort.class
-/Cat.class
 /CheckArraysEquals.class
 /CheckOddNumberFaster.class
 /CheckOddNumbers.class
@@ -50,6 +50,8 @@
 /ReverseLinkedList.class
 /ReverseString.class
 /SelectionSort.class
+/Animal.class
+/Cat.class
 /ShowInheritance.class
 /ShowStringImmutable.class
 /ShuffleArray.class
