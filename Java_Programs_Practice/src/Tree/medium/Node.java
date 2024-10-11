@@ -21,4 +21,10 @@ public class Node {
 		this.left = left;
 		this.right = right;
 	}
+
+	@Override
+	public String toString() {
+		return "Node [data=" + data + ", left=" + left + ", right=" + right + "]";
+	}
+	
 }
