@@ -1,9 +1,11 @@
-package Tree;
+package Tree.hard;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
+
+import Tree.medium.Node;
 
 public class MinimumTimeTakenToBURNTheBinaryTreeFromNode {
 
