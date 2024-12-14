@@ -5,8 +5,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class EmployeePractice {
 
@@ -26,7 +28,18 @@ public class EmployeePractice {
 		
 		problem1(employeeList);
 		problem2(employeeList);
+		problem3(employeeList);
+		
 
+	}
+
+	private static void problem3(List<Employee> employeeList) {
+
+		Map<String, Optional<Employee>> collectMap = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment,
+								Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary)))
+						));
+	System.out.println(collectMap);
 	}
 
 	private static void problem2(List<Employee> employeeList) {
@@ -39,12 +52,15 @@ public class EmployeePractice {
 									)
 							));
 		System.out.println(collectMap);
+//		"ksjkjh".chars().mapToObj(c->(char)c).distinct().forEach(System.out::println);
+//		System.out.println(Stream.generate(()->42).collect(Collectors.toList()));
+		System.out.println(employeeList.stream().map(Employee::getAge).sorted().collect(Collectors.toList()));
 	}
 
 	private static void problem1(List<Employee> employeeList) {
 		
 		Map<String, Double> collectMap = employeeList.stream()
-					.collect(Collectors.groupingBy(Employee::getGender,Collectors.averagingDouble(Employee::getSalary)));
+					.collect(Collectors.groupingBy(Employee::getGender,TreeMap::new,Collectors.averagingDouble(Employee::getSalary)));
 		System.out.println(collectMap);
 	}
 }

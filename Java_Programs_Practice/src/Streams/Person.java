@@ -35,5 +35,14 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + "]";
 	}
+
+//	@Override
+//	public int compareTo(Person o) {
+//		return this.age-o.age;
+//	}
 	
+//	@Override
+//	public int compareTo(Person o) {
+//		return this.name.compareTo(o.name);
+//	}
 }

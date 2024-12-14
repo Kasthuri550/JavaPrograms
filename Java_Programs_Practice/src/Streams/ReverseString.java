@@ -1,5 +1,6 @@
 package Streams;
 
+import java.util.Arrays;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -40,6 +41,11 @@ public class ReverseString {
 		.collect(Collectors.joining());
 		
 		System.out.println(reverseStr);
-			
+		
+		"kasthuri is a".chars().mapToObj(c->(char)c).reduce("",(a,b)->b+a,(a,b)->b+a);
+		
+		
+		
+		
 	}
 }

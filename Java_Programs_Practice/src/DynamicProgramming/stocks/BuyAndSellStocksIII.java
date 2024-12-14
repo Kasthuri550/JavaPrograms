@@ -8,8 +8,8 @@ public class BuyAndSellStocksIII {
 		
 		int n = 6,prices[] = {10,22,5,75,65,80};
 		
-//		System.out.println(buyAndSellStocksIIIRecursion(0,0,2,n,prices));
-//		System.out.println(buyAndSellStocksIIIMemoization(n, prices));
+		System.out.println(buyAndSellStocksIIIRecursion(0,0,2,n,prices));
+		System.out.println(buyAndSellStocksIIIMemoization(n, prices));
 		System.out.println(buyAndSellStocksIIITabulation(n, prices));
 		System.out.println(buyAndSellStocksIIISpaceOptimized(n, prices));
 

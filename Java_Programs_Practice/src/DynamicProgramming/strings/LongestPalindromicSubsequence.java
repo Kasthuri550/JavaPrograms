@@ -11,7 +11,7 @@ public class LongestPalindromicSubsequence {
 		StringBuilder sb=new StringBuilder(s1);
 		String s2=sb.reverse().toString();
 		
-//		System.out.println(lpsBrute(s1,s2,s1.length(),s2.length()));
+		System.out.println(lpsBrute(s1,s2,s1.length(),s2.length()));
 //		System.out.println(lpsMemo(s1, s2, s1.length(), s2.length()));
 //		System.out.println(lpsTabulation(s1,s2,s1.length(),s2.length()));
 		System.out.println(lpsSpaceOptimized(s1,s2,s1.length(),s2.length()));

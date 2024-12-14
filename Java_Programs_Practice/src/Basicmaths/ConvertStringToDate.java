@@ -3,6 +3,8 @@ package Basicmaths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
 
 public class ConvertStringToDate {
@@ -22,7 +24,13 @@ public class ConvertStringToDate {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		DateTimeFormatter formatter=DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		
+		LocalDate date=LocalDate.now();
+		
+		date.format(formatter);
+		
+		System.out.println(date);
 	}
 
 }

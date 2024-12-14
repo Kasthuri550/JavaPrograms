@@ -13,7 +13,7 @@ public class SortArrayByAnotherArray {
 		int[] arr1 = {7,1, 2, 3, 4, 3, 2, 4, 2, 5};
         int[] arr2 = {4, 2, 1, 3};
 
-//		sortByAnotherArray1(arr1,arr2);
+		sortByAnotherArray1(arr1,arr2);
 		sortByAnotherArray2(arr1,arr2);
 	}
 

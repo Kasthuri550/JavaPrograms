@@ -8,8 +8,8 @@ public class LongestIncreasingSubsequence {
 
 		int n = 6, a[] = {5,8,3,7,9,1};
 
-		//		System.out.println(longestIncreasingSubsequenceRecurrsion(0,-1,a,n));
-		//		System.out.println(longestIncreasingSubsequenceMemoization(0,-1,a,n));
+				System.out.println(longestIncreasingSubsequenceRecurrsion(0,-1,a,n));
+				System.out.println(longestIncreasingSubsequenceMemoization(0,-1,a,n));
 		System.out.println(longestIncreasingSubsequenceTabulation(a,n));
 		System.out.println(longestIncreasingSubsequenceSpaceOptimized(a, n));
 	}

@@ -16,7 +16,7 @@ public class FrogJumpWithKDistance {
 
 	private static int frogJumpWithKDistanceTabulation(int index, int[] arr, int k) {
 		
-		int dp[]=new int[index];
+		int dp[]=new int[index+1];
 		
 		dp[0]=0;
 		
