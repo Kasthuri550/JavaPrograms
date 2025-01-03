@@ -1,4 +1,4 @@
-package BinarySearchTree.medium;
+package BinarySearch.medium;
 
 import java.util.Arrays;
 

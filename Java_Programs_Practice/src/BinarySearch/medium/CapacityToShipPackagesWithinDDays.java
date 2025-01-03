@@ -1,4 +1,4 @@
-package BinarySearchTree.medium;
+package BinarySearch.medium;
 
 public class CapacityToShipPackagesWithinDDays {
 

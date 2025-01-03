@@ -1,4 +1,4 @@
-package BinarySearchTree.hard;
+package BinarySearch.medium;
 
 public class FindPeakElement {
 
