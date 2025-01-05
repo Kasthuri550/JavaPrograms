@@ -2,8 +2,8 @@ package Tree.medium;
 
 public class TreeNode {
 	
-	int val;
-	TreeNode left,right;
+	public int val;
+	public TreeNode left,right;
 	
 	public TreeNode() {
 		super();

@@ -1,0 +1,68 @@
+### **Brute Force Approach (Using `BinaryIteratorBrute`)**
+
+#### **Time Complexity (TC):**
+1. **Inorder Traversal:**  
+   - During the constructor call, the entire tree is traversed in-order, which takes \( O(N) \), where \( N \) is the number of nodes in the tree.
+
+2. **`next()` Method:**  
+   - Simply retrieves the next element from the precomputed list in \( O(1) \).
+
+3. **`hasNext()` Method:**  
+   - Compares the current index with the size of the list in \( O(1) \).
+
+**Overall Time Complexity:**  
+\[
+O(N) \, \text{(for constructor)} \, + \, O(1) \, \text{(per operation)}
+\]
+
+---
+
+#### **Space Complexity (SC):**
+1. **Storage for Inorder Traversal:**  
+   - Requires \( O(N) \) space to store all nodes in sorted order.
+
+2. **No Additional Space for Stack:**  
+   - No stack is maintained during traversal as it is done recursively.
+
+**Overall Space Complexity:**  
+\[
+O(N)
+\]
+
+---
+
+### **Better Approach (Using `BinaryIteratorBetter`)**
+
+#### **Time Complexity (TC):**
+1. **Pushing Left Nodes to Stack (`pushAllLeft`):**  
+   - In the constructor, leftmost nodes are pushed to the stack. For a balanced BST, this takes \( O(\log N) \), and for a skewed BST, this takes \( O(N) \).  
+
+2. **`next()` Method:**  
+   - Each call to `next()` involves popping a node from the stack and possibly processing its right subtree.  
+   - Total nodes processed is \( N \), with each node being pushed and popped exactly once.  
+   - Overall time for \( N \) calls: \( O(N) \).
+
+3. **`hasNext()` Method:**  
+   - Checking if the stack is empty takes \( O(1) \).
+
+**Overall Time Complexity:**  
+\[
+O(1) \, \text{(per operation)} \, \text{and} \, O(N) \, \text{for all operations combined.}
+\]
+
+---
+
+#### **Space Complexity (SC):**
+1. **Stack Storage:**  
+   - At most \( O(H) \) space is required to store nodes in the stack, where \( H \) is the height of the tree.  
+   - For a balanced BST: \( H = \log N \).  
+   - For a skewed BST: \( H = N \).
+
+2. **No Additional Space for Node Storage:**  
+   - Unlike the brute force approach, no extra space is required to store all node values.
+
+**Overall Space Complexity:**  
+\[
+O(H) \, \text{(where \( H \) is the tree height)}
+\]  
+Balanced: \( O(\log N) \), Skewed: \( O(N) \).
