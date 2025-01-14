@@ -31,7 +31,8 @@ public class CountAndSay {
 
 		StringBuilder sb=new StringBuilder();
 
-		int m=result.length(),count=1;
+		int m=result.length();
+		int count=1;
 
 		for(int i=0;i<m-1;i++)
 		{
