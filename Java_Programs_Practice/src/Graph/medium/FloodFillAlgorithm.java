@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * Time Complexity: O(N*M)+O(N*M*4) ~ O(N*M)
- * Space Complexity: O(N*M)
+ * Space Complexity: O(N*M)+O(N*M) ~ O(N*M)
  * */
 public class FloodFillAlgorithm {
 
