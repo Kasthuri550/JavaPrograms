@@ -28,6 +28,8 @@ public class SortCharactersByFrequency {
 		PriorityQueue<Character> pq=new PriorityQueue<Character>((x,y)->frequencyMap.get(y)-frequencyMap.get(x));
 		pq.addAll(frequencyMap.keySet());
 		
+		System.out.println(pq);
+		
 		StringBuilder sb=new StringBuilder();
 		
 		while(!pq.isEmpty())
