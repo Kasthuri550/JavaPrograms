@@ -21,7 +21,7 @@ public class SieveOfEratosthenes {
 
 		int prime[]=new int[n+1];
 
-		Arrays.fill(prime,2,n,1);
+		Arrays.fill(prime,2,n+1,1);
 
 		for(int i=2;i*i<=n;i++)
 		{
@@ -49,7 +49,7 @@ public class SieveOfEratosthenes {
 
 		int prime[]=new int[n+1];
 
-		Arrays.fill(prime,2,n,1);
+		Arrays.fill(prime,2,n+1,1);
 
 		for(int i=2;i<=n;i++)
 		{
