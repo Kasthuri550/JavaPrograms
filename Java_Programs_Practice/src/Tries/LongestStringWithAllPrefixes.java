@@ -1,5 +1,8 @@
 package Tries;
-
+/*
+ * Time Complexity: O(n*len)+O(n*len)
+ * Space Complexity: O(n*len)
+ * */
 class TrieNode1
 {
 	TrieNode1 links[]=new TrieNode1[26];
@@ -32,38 +35,38 @@ class TrieNode1
 }
 
 public class LongestStringWithAllPrefixes {
-	
+
 	static class Trie {
-		
+
 		private static TrieNode1 root;
-		
+
 		Trie()
 		{
 			root=new TrieNode1();
 		}
-	
+
 		public static void insert(String word)
 		{
 			TrieNode1 node=root;
-			
+
 			for(int i=0;i<word.length();i++)
 			{
 				if(!node.containsKey(word.charAt(i)))
 				{
 					node.put(word.charAt(i),new TrieNode1());
 				}
-				
+
 				node=node.get(word.charAt(i));
 			}
-			
+
 			node.setEnd();
 		}
-		
+
 		public static boolean checkIfPrefixExists(String word)
 		{
 			TrieNode1 node=root;
 			boolean flag=true;
-			
+
 			for(int i=0;i<word.length();i++)
 			{
 				if(node.containsKey(word.charAt(i)))
@@ -76,22 +79,22 @@ public class LongestStringWithAllPrefixes {
 					return false;
 				}				
 			}
-			
+
 			return flag;
 		}
 	}
-	
+
 	public static String completeString(int n,String a[])
 	{
 		Trie obj=new Trie();
-		
+
 		for(int i=0;i<n;i++)
 		{
 			Trie.insert(a[i]);
 		}
-		
+
 		String longest="";
-		
+
 		for(int i=0;i<n;i++)
 		{
 			if(Trie.checkIfPrefixExists(a[i]))
@@ -106,19 +109,19 @@ public class LongestStringWithAllPrefixes {
 				}
 			}
 		}
-		
+
 		if(longest=="") return "";
-		
+
 		return longest;
 	}
 
 	public static void main(String[] args) {
 
 		String[] input1 = {"p", "pr", "pro", "probl", "problem", "pros", "process", "processor"};
-        System.out.println("Output: " + completeString(input1.length,input1)); // Output: pros
+		System.out.println("Output: " + completeString(input1.length,input1)); // Output: pros
 
-        String[] input2 = {"geeks", "gfg", "geeksforgeeks"};
-        System.out.println("Output: " + completeString(input2.length,input2)); // Output: (empty string)
-		
+		String[] input2 = {"geeks", "gfg", "geeksforgeeks"};
+		System.out.println("Output: " + completeString(input2.length,input2)); // Output: (empty string)
+
 	}
 }

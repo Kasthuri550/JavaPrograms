@@ -107,7 +107,7 @@ public class FindPeakElementII {
 	}
 
 /*
- * Time Complexity: O(n*m)
+ * Time Complexity: O(n*m*4)
  * Space Complexity: O(1)
  */	
 	private static int[] findPeakElementIIBrute(int[][] mat) {
