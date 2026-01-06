@@ -12,7 +12,10 @@ public class LongestStringChain {
 		System.out.println(longestStringChain(n,words));
 
 	}
-
+	/*
+	 * Time Complexity: O(n^2 * L)
+	 * Space Complexity: O(n)
+	 * */
 	private static int longestStringChain(int n, String[] words) {
 
 		int dp[]=new int[n],max=1;

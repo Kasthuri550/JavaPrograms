@@ -4,7 +4,7 @@ public class PrimeNumber {
 
 	public static void main(String[] args) {
 		
-		int n=7;
+		int n=3;
 		
 		approach1(n);
 

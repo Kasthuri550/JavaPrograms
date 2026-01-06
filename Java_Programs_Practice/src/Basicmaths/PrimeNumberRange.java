@@ -27,7 +27,7 @@ public class PrimeNumberRange {
 					count++;
 				
 					if(j!=i/j)
-					count++;
+						count++;
 				}
 			}
 			

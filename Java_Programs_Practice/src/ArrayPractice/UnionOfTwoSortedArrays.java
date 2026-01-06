@@ -13,8 +13,8 @@ public class UnionOfTwoSortedArrays {
 		int arr2[] = {2, 3, 4, 4, 5, 11, 12};
 		
 		unionOfSortedArraysBrute(arr1,arr2,arr1.length,arr2.length);
-		unionOfSortedArraysBetter(arr1, arr2,arr1.length,arr2.length);
-		unionOfSortedArraysOptimal(arr1, arr2,arr1.length,arr2.length);
+//		unionOfSortedArraysBetter(arr1, arr2,arr1.length,arr2.length);
+//		unionOfSortedArraysOptimal(arr1, arr2,arr1.length,arr2.length);
 
 	}
 
@@ -30,6 +30,7 @@ public class UnionOfTwoSortedArrays {
 			{
 				if(resultList.size()==0 || resultList.get(resultList.size()-1)!=arr1[i])
 					resultList.add(arr1[i]);
+				
 				i++;
 			}
 			else

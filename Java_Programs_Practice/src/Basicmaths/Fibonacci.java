@@ -5,12 +5,12 @@ public class Fibonacci {
 	public static void main(String[] args) {
 			
 		int num=10;
-//		fibonacci(num);
+		fibonacci(num);
 		
-		for(int i=0;i<num;i++)
-		{
-		 System.out.println(fibonacciRecursion(i));
-		}
+//		for(int i=0;i<num;i++)
+//		{
+//		 System.out.println(fibonacciRecursion(i));
+//		}
 	}
 
 	private static int fibonacciRecursion(int count) {

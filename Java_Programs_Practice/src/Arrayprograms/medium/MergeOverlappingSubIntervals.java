@@ -66,7 +66,7 @@ public class MergeOverlappingSubIntervals {
 			int start=arr[i][0];
 			int end=arr[i][1];
 			
-			if(!resultList.isEmpty() && end<=resultList.get(resultList.size()-1).get(1))
+			if(!resultList.isEmpty() && start<=resultList.get(resultList.size()-1).get(1))
 			{
 				continue;
 			}

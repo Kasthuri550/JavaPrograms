@@ -7,8 +7,8 @@ public class MaximumNestingDepthOfTheParentheses {
 	public static void main(String[] args) {
 		
 		String s = "(1+(2*3)+((8)/4))+1";		
-//		maximumNestingDepthParentheses1(s);
-		maximumNestingDepthParentheses2(s);
+		maximumNestingDepthParentheses1(s);
+//		maximumNestingDepthParentheses2(s);
 	}
 
 	private static void maximumNestingDepthParentheses2(String s) {

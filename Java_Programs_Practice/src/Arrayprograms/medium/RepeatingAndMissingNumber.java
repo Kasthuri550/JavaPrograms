@@ -28,11 +28,11 @@ public class RepeatingAndMissingNumber {
 		}
 		
 		int val1=sum-arrSum;
-		int val2=arrSum-arrSquareSum;
+		int val2=squareSum-arrSquareSum;
 		
-		val2=val2/val2;
+		val2=val2/val1;
 		
-		int x=val1+val2/2;
+		int x=(val1+val2)/2;
 		int y=x-val1;
 		
 		return new int[] {x,y};

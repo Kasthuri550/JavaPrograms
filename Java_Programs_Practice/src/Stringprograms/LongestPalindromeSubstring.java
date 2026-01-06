@@ -1,5 +1,9 @@
 package Stringprograms;
 
+/*
+ * Time Complexity: O(n^2)
+ * Space Complexity: O(1)
+ * */
 public class LongestPalindromeSubstring {
 
 	public static void main(String[] args) {

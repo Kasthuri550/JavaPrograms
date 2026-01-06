@@ -10,7 +10,6 @@ public class ReverseWords {
 		String s="  hello world  ";
 		String reverseWords = reverseWords(s);
 		System.out.println(reverseWords);
-
 	}
 	
 	public static String reverseWords(String s) {
@@ -20,7 +19,6 @@ public class ReverseWords {
         Collections.reverse(Arrays.asList(str));
 
         return String.join(" ",str);
-        
     }
 
 }

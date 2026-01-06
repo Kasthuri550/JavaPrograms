@@ -27,6 +27,7 @@ public class Practice3 {
 	private static void sumArrElements(int arr[]) {
 		
 		int totalSum = Arrays.stream(arr).sum();
+		System.out.println(Arrays.stream(arr).reduce((a,b)->a+b).getAsInt());
 		System.out.println(totalSum);
 		
 	}

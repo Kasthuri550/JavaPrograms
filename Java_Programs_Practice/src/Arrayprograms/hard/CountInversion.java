@@ -7,8 +7,8 @@ public class CountInversion {
 		int[] a = {5, 4, 3, 2, 1};
         int n = a.length;
         
-//        System.out.println(countInversionOptimal(a,n));
-        System.out.println(countInversionBrute(a,n));
+        System.out.println(countInversionOptimal(a,n));
+//        System.out.println(countInversionBrute(a,n));
 	}
 
 	private static int countInversionBrute(int[] a, int n) {

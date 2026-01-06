@@ -13,6 +13,7 @@ public class ReverseWords {
 	private static void reverse(String s1) {
 		
 		Pattern pattern=Pattern.compile("\\s");
+		System.out.println(pattern);
 		
 		String[] temp = pattern.split(s1);
 		String result="";

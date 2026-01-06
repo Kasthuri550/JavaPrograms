@@ -12,6 +12,8 @@ public class FlattenMap {
 		int[] array = Arrays.stream(arr).flatMapToInt(map->Arrays.stream(map)).toArray();
 		
 		System.out.println(Arrays.toString(array));
+		
+		Arrays.stream(arr).flatMapToInt(map->Arrays.stream(map)).map(e->e+5).forEach(System.out::println);
 
 	}
 }

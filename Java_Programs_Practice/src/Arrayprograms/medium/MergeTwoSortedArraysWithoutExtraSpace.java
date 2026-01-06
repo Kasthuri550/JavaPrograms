@@ -70,7 +70,7 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
 		
 		while(right < m)
 		{
-			arr3[index++]=arr1[right++];
+			arr3[index++]=arr2[right++];
 		}
 		
 		for(int i=0;i<n+m;i++)

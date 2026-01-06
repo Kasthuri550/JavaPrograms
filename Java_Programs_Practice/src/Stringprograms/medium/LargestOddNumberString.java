@@ -48,6 +48,5 @@ public class LargestOddNumberString {
 		}
 		
 		return largestSubstring;
-		
 	}
 }

@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+/*
+ * Brute	O(n)	O(n)
+Better	O(n)	O(n)
+Optimal	O(n)	O(n)
+inplace o(n) o(1)
+ * */
 public class RearrangeArrayPositiveAndNegative {
 
 	public static void main(String[] args) {
@@ -13,7 +19,36 @@ public class RearrangeArrayPositiveAndNegative {
 //		rearrangePosNegBrute(arr);
 //		rearrangePosNegBetter(arr);
 		rearrangePosNegOptimal(new int[] {-1, 6, -2, 3, -4, 9,7,1,0});
+//		rearrangePosNegInPlace(new int[] {-1, 6, -2, 3, -4, 9,7,1,0});
 		
+	}
+	
+	private static void rearrangePosNegInPlace(int[] arr) {
+
+	    int n = arr.length;
+	    int posIndex = 0, negIndex = 1;
+
+	    while (posIndex < n && negIndex < n) {
+
+	        // correct position, move ahead
+	        if (arr[posIndex] > 0) {
+	            posIndex += 2;
+	        }
+	        else if (arr[negIndex] < 0) {
+	            negIndex += 2;
+	        }
+	        // swap incorrect elements
+	        else {
+	            int temp = arr[posIndex];
+	            arr[posIndex] = arr[negIndex];
+	            arr[negIndex] = temp;
+
+	            posIndex += 2;
+	            negIndex += 2;
+	        }
+	    }
+
+	    System.out.println(Arrays.toString(arr));
 	}
 
 	private static void rearrangePosNegOptimal(int[] arr) {

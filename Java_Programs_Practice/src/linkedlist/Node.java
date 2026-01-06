@@ -19,4 +19,8 @@ public class Node
 		super();
 		this.data = data;
 	}
+	@Override
+	public String toString() {
+		return "Node [data=" + data + ", next=" + next + "]";
+	}
 }
