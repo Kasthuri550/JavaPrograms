@@ -1,36 +1,40 @@
 package stack;
 
+/*
+ * Time Complexity: O(1)
+ * Space Complexity: O(n)
+ * */
 class MyStack
 {
 	int arr[],top,capacity;
-	
+
 	MyStack(int size)
 	{
 		arr=new int[size];
 		capacity=size;
 		top=-1;
 	}
-	
+
 	void push(int x)
 	{
 		if(isFull())
 		{
 			throw new RuntimeException("Stack Overflow");
 		}
-		
+
 		arr[++top]=x;
 	}
-	
+
 	int pop()
 	{
 		if(isEmpty())
 		{
 			throw new RuntimeException("Stack Underflow");
 		}
-		
+
 		return arr[top--];
 	}
-	
+
 	int peek()
 	{
 		if(isEmpty())
@@ -39,22 +43,22 @@ class MyStack
 		}
 		return arr[top];
 	}
-	
+
 	int size()
 	{
 		return top+1;
 	}
-	
+
 	boolean isEmpty()
 	{
 		return top==-1;
 	}
-	
+
 	boolean isFull()
 	{
 		return top==capacity-1;
 	}
-	
+
 	void show()
 	{
 		for(int i=0;i<=top;i++)
@@ -67,7 +71,7 @@ class MyStack
 public class ImplementStackUsingArray {
 
 	public static void main(String[] args) {
-		
+
 		MyStack mystack=new MyStack(5);
 		mystack.push(34);
 		mystack.push(89);
@@ -83,6 +87,6 @@ public class ImplementStackUsingArray {
 		System.out.println(mystack.isEmpty());
 		System.out.println(mystack.size());
 		System.out.println(mystack.peek());
-		
+
 	}
 }

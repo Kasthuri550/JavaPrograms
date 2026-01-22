@@ -10,9 +10,12 @@ public class SubsetSumEqualToTarget {
 		System.out.println(subsetSumEqualToTargetMemoization(arr,sum, N-1));
 		System.out.println(subsetSumEqualToTargetTabulation(arr, sum,N));
 		System.out.println(subsetSumEqualToTargetSpaceOptimized(arr, sum, N));
-
 	}
 
+	/*
+	 * Time Complexity: O(n*sum)
+	 * Space Complexity: O(sum)
+	 * */
 	private static boolean subsetSumEqualToTargetSpaceOptimized(int[] arr, int sum, int n) {
 
 		boolean prev[]=new boolean[sum+1];
@@ -47,6 +50,10 @@ public class SubsetSumEqualToTarget {
 		return prev[sum];
 	}
 
+	/*
+	 * Time Complexity: O(n*sum)
+	 * Space Complexity: O(n*sum)
+	 * */
 	private static boolean subsetSumEqualToTargetTabulation(int[] arr, int sum, int n) {
 
 		boolean dp[][]=new boolean[n][sum+1];
@@ -78,12 +85,16 @@ public class SubsetSumEqualToTarget {
 		return dp[n-1][sum];
 	}
 
+	/*
+	 * Time Complexity: O(n*sum)
+	 * Space Complexity: O(n*sum)+O(n)
+	 * */
 	private static boolean subsetSumEqualToTargetMemoization(int[] arr, int sum, int n) {
 
 		Boolean dp[][]=new Boolean[n+1][sum+1];
 
 		//		for(int row[]:dp)
-			//		{
+		//		{
 		//			Arrays.fill(row,-1);
 		//		}
 
@@ -108,7 +119,7 @@ public class SubsetSumEqualToTarget {
 
 		return dp[n][sum]=notTake||take;
 	}
-	
+
 	/*
 	 * Time Complexity: O(2^n)
 	 * Space Complexity: O(n)

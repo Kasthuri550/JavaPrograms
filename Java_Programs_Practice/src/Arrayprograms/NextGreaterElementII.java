@@ -3,60 +3,54 @@ package Arrayprograms;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class NextGreaterElement {
+public class NextGreaterElementII {
 
 	public static void main(String[] args) {
-		
+
 		int[] nums = {1,2,3,4,3};
-		nextGreater1(nums);
-		nextGreater2(nums);
-		nextGreater3(nums);
+
+		nextGreaterBrute(nums);
+		nextGreaterOptimal(nums);
 	}
 
-	private static void nextGreater3(int[] nums) {
-		
-		int n=nums.length;
-		for(int i=0;i<n-1;i++)
-		{
-			if(nums[i]<nums[i+1])
-			{
-				nums[i]=nums[i+1];
-			}
-			else
-			{
-				nums[i]=-1;
-			}
-		}
-		nums[n-1]=-1;
-		System.out.println(Arrays.toString(nums));
-	}
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity:O(n)
+	 * */
+	private static void nextGreaterBrute(int[] nums) {
 
-	private static void nextGreater2(int[] nums) {
-		
 		int n=nums.length;
 		int nge[]=new int[n];
-		
-		for(int i=0;i<n-1;i++)
+
+		Arrays.fill(nge, -1);
+
+		for(int i=0;i<n;i++)
 		{
-			for(int j=i+1;j<n;j++)
+			for(int j=i+1;j<i+n;j++)
 			{
-				if(nums[i]<nums[j])
+				int index=j%n;
+
+				if(nums[index]>nums[i])
 				{
-					nge[i]=nums[j];
+					nge[i]=nums[index];
 					break;
 				}
 			}
 		}
 		System.out.println(Arrays.toString(nge));
-		
+
 	}
 
-	private static void nextGreater1(int[] nums) {
-		
+	/*
+	 * Time Complexity: O(2n)
+	 * Space Complexity:O(n)
+	 * */
+	private static void nextGreaterOptimal(int[] nums) {
+
 		int n=nums.length;
 		Stack<Integer> stack=new Stack<Integer>();
 		int nge[]=new int[n];
-		
+
 		for(int i=2*n-1;i>=0;i--)
 		{
 			while(!stack.isEmpty() && stack.peek()<=nums[i%n])
@@ -67,10 +61,10 @@ public class NextGreaterElement {
 			{
 				nge[i]=stack.isEmpty()?-1:stack.peek();
 			}
-			
+
 			stack.push(nums[i%n]);	
 		}
-		
+
 		System.out.println(Arrays.toString(nge));
 	}
 

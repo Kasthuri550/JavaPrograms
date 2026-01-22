@@ -1,11 +1,15 @@
 package Arrayprograms.easy;
 
+/*
+ * Time Complexity: O(1)
+ * Space Complexity: O(n)
+ * */
 class MyQueue
 {
 	private static final int MAXSIZE=5;
 	private int front,rear,currentSize=0;
 	private int arr[];
-	
+
 	MyQueue()
 	{
 		front=-1;
@@ -13,7 +17,7 @@ class MyQueue
 		currentSize=0;
 		arr=new int[MAXSIZE];
 	}
-	
+
 	public void push(int newElement)
 	{
 		if(currentSize==MAXSIZE)
@@ -28,11 +32,11 @@ class MyQueue
 		}
 		else
 			rear=(rear+1)%MAXSIZE;
-		
+
 		arr[rear]=newElement;
 		currentSize++;
 	}
-	
+
 	public int pop()
 	{
 		if(front==-1)
@@ -40,7 +44,7 @@ class MyQueue
 			System.out.println("Queue is empty");
 			System.exit(1);
 		}
-		
+
 		int popped=arr[front];
 		if(currentSize==1)
 		{
@@ -52,7 +56,7 @@ class MyQueue
 		currentSize--;
 		return popped;
 	}
-	
+
 	public int top()
 	{
 		if(front==-1)
@@ -62,20 +66,20 @@ class MyQueue
 		}
 		return arr[front%MAXSIZE];
 	}
-	
+
 	public int size()
 	{
 		return currentSize;
 	}
-	
+
 	public boolean isEmpty()
 	{
 		if(currentSize==0)
 			return true;
-		
+
 		return false;
 	}
-	
+
 	public void print()
 	{
 		if(isEmpty())
@@ -83,7 +87,7 @@ class MyQueue
 			System.out.println("Queue is empty");
 			return;
 		}
-		
+
 		if(front<=rear)
 		{
 			for(int i=front;i<=rear;i++)
@@ -109,7 +113,7 @@ class MyQueue
 public class ImplementQueueUsingArray {
 
 	public static void main(String[] args) {
-		
+
 		MyQueue queue=new MyQueue();
 		queue.push(10);
 		queue.push(20);
@@ -121,7 +125,7 @@ public class ImplementQueueUsingArray {
 		queue.push(60);
 		queue.pop();
 		queue.print();
-		
+
 		System.out.println(queue.top());
 		System.out.println(queue.size());
 		System.out.println(queue.isEmpty());

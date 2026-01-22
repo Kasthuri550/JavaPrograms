@@ -1,10 +1,11 @@
 /ArrayPractice/
-/Arrayprograms/
 /ArraySort.class
+/Arrayprograms/
 /Basicmaths/
 /BinarySearch.class
 /BinarySearch/
 /BinarySearchTree/
+/BinaryTree/
 /BubbleSort.class
 /CheckArraysEquals.class
 /CheckOddNumberFaster.class
@@ -73,6 +74,8 @@
 /WriteDataIntoTextFile.class
 /bitmanipulation/
 /collections/
+/copy/
+/designpatterns/
 /doublyLinkedList/
 /dp/
 /faq/
@@ -84,5 +87,4 @@
 /searching/
 /sorting/
 /stack/
-/designpatterns/
-/copy/
+/OOPS/

@@ -3,7 +3,7 @@ package sorting;
 public class BubbleSortPractice {
 
 	public static void main(String[] args) {
-		
+
 		int arr[]={4, 1, 3, 9, 7};
 		String strArray[]= {"kasthuri","arun","kumar","suseela","sathya","moorthy"};
 		bubbleSortAsc(arr);
@@ -12,9 +12,9 @@ public class BubbleSortPractice {
 	}
 
 	private static void bubbleSortStr(String[] strArray) {
-		
+
 		int n=strArray.length;
-		
+
 		for(int i=0;i<n-1;i++)
 		{
 			int didSwap=0;
@@ -28,24 +28,27 @@ public class BubbleSortPractice {
 					didSwap=1;
 				}
 			}
-			
+
 			if(didSwap==0)
 			{
 				break;
 			}
 		}
-		
+
 		for(int i=0;i<n;i++)
 		{
 			System.out.print(strArray[i]+", ");
 		}
-		
-	}
 
+	}
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(1)
+	 * */
 	private static void bubbleSortDesc(int[] arr) {
-		
+
 		int n=arr.length;
-		
+
 		for(int i=0;i<n-1;i++)
 		{
 			int didSwap=0;
@@ -59,13 +62,13 @@ public class BubbleSortPractice {
 					didSwap=1;
 				}
 			}
-			
+
 			if(didSwap==0)
 			{
 				break;
 			}
 		}
-		
+
 		for(int i=0;i<n;i++)
 		{
 			System.out.print(arr[i]+" ");
@@ -74,9 +77,9 @@ public class BubbleSortPractice {
 	}
 
 	private static void bubbleSortAsc(int[] arr) {
-		
+
 		int n=arr.length;
-		
+
 		for(int i=0;i<n-1;i++)
 		{
 			int didSwap=0;
@@ -95,12 +98,12 @@ public class BubbleSortPractice {
 				break;
 			}
 		}
-		
+
 		for(int i=0;i<n;i++)
 		{
 			System.out.print(arr[i]+" ");
 		}
 		System.out.println();
-		
+
 	}
 }

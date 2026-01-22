@@ -15,6 +15,10 @@ public class RodCuttingProblem {
 		System.out.println(rodCuttingProblemSpaceOptimizedMore(N, N, price));
 	}
 
+	/*
+	 * Time Complexity: O(index*n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int rodCuttingProblemSpaceOptimizedMore(int index, int n, int[] price) {
 
 		int prev[]=new int[n+1];
@@ -42,6 +46,10 @@ public class RodCuttingProblem {
 		return prev[n];
 	}
 
+	/*
+	 * Time Complexity: O(index*n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int rodCuttingProblemSpaceOptimized(int index, int n, int[] price) {
 
 		int prev[]=new int[n+1],curr[]=new int[n+1];
@@ -71,6 +79,10 @@ public class RodCuttingProblem {
 		return prev[n];
 	}
 
+	/*
+	 * Time Complexity: O(index*n)
+	 * Space Complexity: O(index*n)
+	 * */
 	private static int rodCuttingProblemTabulation(int index, int n, int[] price) {
 
 		int dp[][]=new int[index][n+1];
@@ -99,6 +111,10 @@ public class RodCuttingProblem {
 		return dp[index-1][n];
 	}
 
+	/*
+	 * Time Complexity: O(index*n)
+	 * Space Complexity: O(index*n)
+	 * */
 	private static int rodCuttingProblemMemoization(int index, int n, int[] price) {
 
 		int dp[][]=new int[index][n+1];
@@ -131,6 +147,10 @@ public class RodCuttingProblem {
 		return dp[index][n]=Math.max(take, notTake);
 	}
 
+	/*
+	 * Time Complexity: O(2^n)
+	 * Space Complexity: O(n)
+	 * */	
 	private static int rodCuttingProblemRecurrsion(int index,int n, int[] price) {
 
 		if(index==0)

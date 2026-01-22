@@ -7,19 +7,23 @@ public class SpirallyTraversingMatrix {
 	public static void main(String[] args) {
 
 		int matrix[][] = {{1, 2, 3, 4},
-		           {5, 6, 7, 8},
-		           {9, 10, 11, 12},
-		           {13, 14, 15,16}};
-		
+				{5, 6, 7, 8},
+				{9, 10, 11, 12},
+				{13, 14, 15,16}};
+
 		spiralTraversingMatrix(matrix);
 	}
 
+	/*
+	 * Time Complexity: O(m*n)
+	 * Space Complexity: O(1)
+	 * */
 	private static void spiralTraversingMatrix(int[][] matrix) {
-		
+
 		int n=matrix.length,m=matrix[0].length,top=0,bottom=n-1,left=0,right=m-1;
-		
+
 		ArrayList<Integer> resultList=new ArrayList<>();
-		
+
 		while(top<=bottom && left<=right)
 		{
 			for(int i=left;i<=right;i++)
@@ -27,7 +31,7 @@ public class SpirallyTraversingMatrix {
 				resultList.add(matrix[top][i]);
 			}
 			top++;
-			
+
 			for(int i=top;i<=bottom;i++)
 			{
 				resultList.add(matrix[i][right]);
@@ -39,18 +43,21 @@ public class SpirallyTraversingMatrix {
 				{
 					resultList.add(matrix[bottom][i]);
 				}
-				
+
 				bottom--;
 			}
-			
-			for(int i=bottom;i>=top;i--)
+
+			if(left<=right)
 			{
-				resultList.add(matrix[i][left]);
+				for(int i=bottom;i>=top;i--)
+				{
+					resultList.add(matrix[i][left]);
+				}
+				left++;
 			}
-			left++;
 		}
-		
+
 		System.out.println(resultList);
-		
+
 	}
 }

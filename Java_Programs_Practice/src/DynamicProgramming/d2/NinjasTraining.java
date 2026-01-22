@@ -14,14 +14,14 @@ import java.util.Arrays;
 	Space Optimized
 		Time Complexity (TC): O(3*n)
 		Space Complexity (SC): O(3) (as it only stores the previous day's results)
- 
+
  */
 public class NinjasTraining {
 
 	public static void main(String[] args) {
 
 		int n=3,arr[][]= {{1,2,5},{3,1,1},{3,3,3}};
-		
+
 		System.out.println(ninjaTrainingRecursion(n-1,-1,arr));
 		System.out.println(ninjaTrainingMemoization(n,-1, arr));
 		System.out.println(ninjaTrainingTabulation(n,arr));
@@ -29,15 +29,15 @@ public class NinjasTraining {
 	}
 
 	private static int ninjaTrainingSpaceOptimized(int n,int[][] points) {
-		
+
 		int prev[]=new int[4];
 		int curr[]=new int[4];
-		
+
 		prev[0]=Math.max(points[0][1],points[0][2]);
 		prev[1]=Math.max(points[0][0],points[0][2]);
 		prev[2]=Math.max(points[0][0],points[0][1]);
 		prev[3]=Math.max(points[0][0],Math.max(points[0][1],points[0][2]));
-		
+
 		for(int day=1;day<n;day++)
 		{
 			for(int lastActivity=0;lastActivity<4;lastActivity++)
@@ -52,22 +52,22 @@ public class NinjasTraining {
 					}
 				}
 			}
-			
+
 			prev=curr.clone();
 		}
-		
+
 		return prev[3];
 	}
 
 	private static int ninjaTrainingTabulation(int n,int[][] points) {
-		
+
 		int dp[][]=new int[n][4];
-		
+
 		dp[0][0]=Math.max(points[0][1],points[0][2]);
 		dp[0][1]=Math.max(points[0][0],points[0][2]);
 		dp[0][2]=Math.max(points[0][0],points[0][1]);
 		dp[0][3]=Math.max(points[0][2],Math.max(points[0][0],points[0][1]));
-		
+
 		for(int day=1;day<n;day++)
 		{
 			for(int lastActivity=0;lastActivity<4;lastActivity++)
@@ -83,20 +83,20 @@ public class NinjasTraining {
 				}
 			}
 		}
-		
+
 		return dp[n-1][3];
 	}
 
 	private static int ninjaTrainingMemoization(int n, int last, int[][] arr) {
-		
+
 		int dp[][]=new int[n][4];
-		
+
 		for(int row[]:dp)
 		{
 			Arrays.fill(row,-1);
 		}
-		
-		
+
+
 		return ninjaTrainingMemo(n-1,last,arr,dp);
 	}
 
@@ -105,19 +105,21 @@ public class NinjasTraining {
 		if(day==0)
 		{
 			int maxPoints=0;
-			
+
 			for(int activity=0;activity<3;activity++)
 			{
-				maxPoints=Math.max(maxPoints,arr[0][activity]);
+				if (activity != lastActivity) {
+					maxPoints=Math.max(maxPoints,arr[0][activity]);
+				}
 			}
-			
+
 			return maxPoints;
 		}
-	
+
 		if(dp[day][lastActivity+1]!=-1) return dp[day][lastActivity+1];
-		
+
 		int maxPoints=0;
-		
+
 		for(int activity=0;activity<3;activity++)
 		{
 			if(activity!=lastActivity)
@@ -126,26 +128,28 @@ public class NinjasTraining {
 				maxPoints=Math.max(maxPoints, pointsToday);
 			}
 		}
-		
+
 		return dp[day][lastActivity+1]=maxPoints;
 	}
 
 	private static int ninjaTrainingRecursion(int day, int lastActivity, int[][] points) {
-		
+
 		if(day==0)
 		{
 			int maxPoints=0;
-			
+
 			for(int activity=0;activity<3;activity++)
 			{
-				maxPoints=Math.max(maxPoints, points[0][activity]);
+				if (activity != lastActivity) {
+					maxPoints=Math.max(maxPoints, points[0][activity]);
+				}
 			}
-			
+
 			return maxPoints;
 		}
-		
+
 		int maxPoints=0;
-				
+
 		for(int activity=0;activity<3;activity++)
 		{
 			if(activity!=lastActivity)
@@ -154,7 +158,7 @@ public class NinjasTraining {
 				maxPoints=Math.max(maxPoints, pointsToday);
 			}
 		}
-		
+
 		return maxPoints;
 	}
 }

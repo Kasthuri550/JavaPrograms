@@ -2,20 +2,24 @@ package stack;
 
 import java.util.Stack;
 
+/*
+ * Time Complexity:O(n)
+ * Space Complexity: O(n)
+ * */
 public class InfixToPostfixExpression {
 
 	public static void main(String[] args) {
-		
-		 String exp = "3^(1+1)";
-		 
-		 System.out.println(infixToPostfix(exp));
+
+		String exp = "3^(1+1)";
+
+		System.out.println(infixToPostfix(exp));
 	}
 
 	private static String infixToPostfix(String exp) {
-		
+
 		Stack<Character> stack=new Stack<>();
 		StringBuilder result=new StringBuilder();
-		
+
 		for(char c:exp.toCharArray())
 		{
 			if(Character.isLetterOrDigit(c))
@@ -32,7 +36,7 @@ public class InfixToPostfixExpression {
 				{
 					result.append(stack.pop());
 				}
-				
+
 				stack.pop();
 			}
 			else
@@ -44,30 +48,29 @@ public class InfixToPostfixExpression {
 				stack.push(c);
 			}
 		}
-		
+
 		while(!stack.isEmpty())
 		{
 			result.append(stack.pop());
 		}
-		
+
 		return result.toString();
-		
 	}
 
 	private static int precedence(char c) {
-		
+
 		switch(c)
 		{
-			case '^':
-				return 3;
-			case '*':
-			case '/':
-				return 2;
-			case '+':
-			case '-':
-				return 1;
-			default:
-				return -1;
+		case '^':
+			return 3;
+		case '*':
+		case '/':
+			return 2;
+		case '+':
+		case '-':
+			return 1;
+		default:
+			return -1;
 		}
 	}
 }

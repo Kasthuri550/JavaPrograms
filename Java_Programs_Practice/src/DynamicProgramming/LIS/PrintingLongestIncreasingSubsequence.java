@@ -11,20 +11,21 @@ public class PrintingLongestIncreasingSubsequence {
 		int arr[] = {10,9,2,5,3,7,101,18};
 
 		int n = arr.length;
-		
-		longestIncreasingSubsequence(arr,n);
 
+		System.out.println(longestIncreasingSubsequence(arr,n));
 	}
 
-	private static void longestIncreasingSubsequence(int[] arr, int n) {
-		
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(n)
+	 * */	
+	private static ArrayList<Integer> longestIncreasingSubsequence(int[] arr, int n) {
+
 		int dp[]=new int[n];
-		
+
 		Arrays.fill(dp,1);
-		
+
 		int hash[]=new int[n];
-		
-		Arrays.fill(hash,1);
 
 		for(int index=0;index<n;index++)
 		{
@@ -38,10 +39,10 @@ public class PrintingLongestIncreasingSubsequence {
 				}
 			}
 		}
-		
-		
+
+
 		int lastIndex=-1,result=-1;
-		
+
 		for(int i=0;i<n;i++)
 		{
 			if(dp[i]>result)
@@ -50,18 +51,18 @@ public class PrintingLongestIncreasingSubsequence {
 				lastIndex=i;
 			}
 		}
-		
+
 		ArrayList<Integer> list=new ArrayList<>();
 		list.add(arr[lastIndex]);
-		
+
 		while(hash[lastIndex]!=lastIndex)
 		{
 			lastIndex=hash[lastIndex];
 			list.add(arr[lastIndex]);
 		}
-		
+
 		Collections.reverse(list);
-		
-		System.out.println(list);
+
+		return list;
 	}
 }

@@ -15,18 +15,21 @@ public class LongestConsecutiveSequence {
 		longestSuccessiveOptimal(arr);
 
 	}
-
+	/*
+	 * Time Complexity: O(n)
+	 * Space Complexity: O(n)
+	 * */
 	private static void longestSuccessiveOptimal(int[] arr) {
-		
+
 		int n=arr.length,longest=Integer.MIN_VALUE;
-		
+
 		Set<Integer> set=new HashSet<>();
-		
+
 		for(int i=0;i<n;i++)
 		{
 			set.add(arr[i]);
 		}
-		
+
 		for(int i=0;i<n;i++)
 		{
 			if(!set.contains(arr[i]-1))
@@ -40,13 +43,17 @@ public class LongestConsecutiveSequence {
 				}
 				longest=Math.max(longest,count);
 			}
-			
+
 		}
-		
+
 		System.out.println(longest);
-		
+
 	}
 
+	/*
+	 * Time Complexity: O(nlogn)
+	 * Space Complexity: O(1)
+	 * */
 	private static void longestSuccessiveBetter(int[] arr) {
 
 		Arrays.sort(arr);
@@ -74,6 +81,10 @@ public class LongestConsecutiveSequence {
 
 	}
 
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(1)
+	 * */
 	private static void longestSuccessiveBrute(int[] arr) {
 
 		int n=arr.length,longest=Integer.MIN_VALUE;
@@ -92,7 +103,6 @@ public class LongestConsecutiveSequence {
 		}
 
 		System.out.println(longest);
-
 	}
 
 	private static boolean linearSearch(int[] arr, int element) {

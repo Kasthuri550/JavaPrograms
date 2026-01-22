@@ -8,12 +8,16 @@ public class LongestIncreasingSubsequence {
 
 		int n = 6, a[] = {5,8,3,7,9,1};
 
-				System.out.println(longestIncreasingSubsequenceRecurrsion(0,-1,a,n));
-				System.out.println(longestIncreasingSubsequenceMemoization(0,-1,a,n));
+		System.out.println(longestIncreasingSubsequenceRecurrsion(0,-1,a,n));
+		System.out.println(longestIncreasingSubsequenceMemoization(0,-1,a,n));
 		System.out.println(longestIncreasingSubsequenceTabulation(a,n));
 		System.out.println(longestIncreasingSubsequenceSpaceOptimized(a, n));
 	}
 
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(n)
+	 * */
 	private static int longestIncreasingSubsequenceSpaceOptimized(int[] a, int n) {
 
 		int next[]=new int[n+1],curr[]=new int[n+1];
@@ -28,13 +32,17 @@ public class LongestIncreasingSubsequence {
 
 				curr[prevIndex+1]=maxLength;
 			}
-			
+
 			next=curr;
 		}
 
 		return next[-1+1];
 	}
 
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(n^2)
+	 * */
 	private static int longestIncreasingSubsequenceTabulation(int[] a, int n) {
 
 		int dp[][]=new int[n+1][n+1];
@@ -54,6 +62,10 @@ public class LongestIncreasingSubsequence {
 		return dp[0][-1+1];
 	}
 
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(n^2)
+	 * */
 	private static int longestIncreasingSubsequenceMemoization(int index, int prev_index, int[] a, int n) {
 
 		int dp[][]=new int[n][n+1];
@@ -80,6 +92,10 @@ public class LongestIncreasingSubsequence {
 		return dp[index][prev_index+1]=maxLength;
 	}
 
+	/*
+	 * Time Complexity: O(2^n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int longestIncreasingSubsequenceRecurrsion(int index, int prev_index, int[] a,int n) {
 
 		if(index==n)
@@ -89,7 +105,6 @@ public class LongestIncreasingSubsequence {
 
 		if(prev_index==-1 || a[index]>a[prev_index])
 			maxLength=Math.max(maxLength,1+longestIncreasingSubsequenceRecurrsion(index+1,index,a,n));
-
 
 		return maxLength;
 	}

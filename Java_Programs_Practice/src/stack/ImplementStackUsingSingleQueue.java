@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class MyStack
+class MyStacks
 {
 	static Queue<Integer> queue=new LinkedList<Integer>();
 	
@@ -49,7 +49,7 @@ public class ImplementStackUsingSingleQueue {
 
 	public static void main(String[] args) {
 		
-		MyStack mystack=new MyStack();
+		MyStacks mystack=new MyStacks();
 		mystack.push(10);	
 		mystack.push(20);
 		mystack.push(30);

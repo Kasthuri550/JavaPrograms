@@ -10,18 +10,22 @@ public class DistinctSubsequences {
 
 		//		System.out.println(distinctSubsequencesRecurrsive(s1.length()-1,s2.length()-1,s1,s2));
 		System.out.println(distinctSubsequencesMemo(s1.length()-1,s2.length()-1,s1,s2));
-//		System.out.println(distinctSubsequencesTabulation(s1.length(),s2.length(),s1,s2));
-//		System.out.println(distinctSubsequencesSpaceOptimized(s1.length(),s2.length(), s1, s2));
-//		System.out.println(distinctSubsequencesSpaceOptimizedMore(s1.length(),s2.length(), s1, s2));
+		//		System.out.println(distinctSubsequencesTabulation(s1.length(),s2.length(),s1,s2));
+		//		System.out.println(distinctSubsequencesSpaceOptimized(s1.length(),s2.length(), s1, s2));
+		//		System.out.println(distinctSubsequencesSpaceOptimizedMore(s1.length(),s2.length(), s1, s2));
 
 	}
 
+	/*
+	 * Time Complexity: O(m*n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int distinctSubsequencesSpaceOptimizedMore(int m, int n, String s1, String s2) {
 
 		int prev[]=new int[n+1];
-		
+
 		prev[0]=1;
-		
+
 		for(int i=1;i<=m;i++)
 		{
 			for(int j=n;j>=1;j--)
@@ -39,6 +43,10 @@ public class DistinctSubsequences {
 		return prev[n];
 	}
 
+	/*
+	 * Time Complexity: O(m*n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int distinctSubsequencesSpaceOptimized(int m, int n, String s1, String s2) {
 
 		int prev[]=new int[m+1];
@@ -65,6 +73,10 @@ public class DistinctSubsequences {
 		return prev[n];
 	}
 
+	/*
+	 * Time Complexity: O(m*n)
+	 * Space Complexity: O(m*n)
+	 * */
 	private static int distinctSubsequencesTabulation(int m, int n, String s1, String s2) {
 
 		int dp[][]=new int[m+1][n+1];
@@ -97,6 +109,10 @@ public class DistinctSubsequences {
 		return dp[m][n];
 	}
 
+	/*
+	 * Time Complexity: O(m*n)
+	 * Space Complexity: O(m*n)
+	 * */
 	private static int distinctSubsequencesMemo(int m, int n, String s1, String s2) {
 
 		int dp[][]=new int[m+1][n+1];
@@ -130,6 +146,10 @@ public class DistinctSubsequences {
 		return dp[m][n];
 	}
 
+	/*
+	 * Time Complexity: O(2^m)
+	 * Space Complexity: O(m)
+	 * */
 	private static int distinctSubsequencesRecurrsive(int i, int j, String s1, String s2) {
 
 		if(j<0) return 1;

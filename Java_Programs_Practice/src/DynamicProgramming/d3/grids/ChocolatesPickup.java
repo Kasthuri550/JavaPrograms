@@ -12,9 +12,12 @@ public class ChocolatesPickup {
 		System.out.println(chocolatesPickupMemoization(0, 0,m-1, n, m, grid));
 		System.out.println(chocolatesPickupTabulation(n,m,grid));
 		System.out.println(chocolatesPickupSpaceOptimized(n, m, grid));
-
 	}
 
+	/*
+	 * Time Complexity: O(n*m^2)
+	 * Space Complexity: O(m^2)
+	 * */
 	private static int chocolatesPickupSpaceOptimized(int n, int m, int[][] grid) {
 
 		int front[][]=new int[m][m];
@@ -63,7 +66,7 @@ public class ChocolatesPickup {
 					curr[j1][j2]=max;
 				}
 			}
-			
+
 			for(int k=0;k<m;k++)
 			{
 				front[k]=curr[k].clone();
@@ -72,6 +75,10 @@ public class ChocolatesPickup {
 		return front[0][m-1];
 	}
 
+	/*
+	 * Time Complexity: O(n*m^2)
+	 * Space Complexity: O(n*m^2)
+	 * */
 	private static int chocolatesPickupTabulation(int n, int m, int[][] grid) {
 
 		int dp[][][]=new int[n][m][m];
@@ -123,6 +130,10 @@ public class ChocolatesPickup {
 		return dp[0][0][m-1];
 	}
 
+	/*
+	 * Time Complexity: O(n*m^2)
+	 * Space Complexity: O(n*m^2)
+	 * */
 	private static int chocolatesPickupMemoization(int i, int j1, int j2, int n, int m, int[][] grid) {
 
 		int dp[][][]=new int[n][m][m];
@@ -170,6 +181,10 @@ public class ChocolatesPickup {
 		return dp[i][j1][j2]=max;
 	}
 
+	/*
+	 * Time Complexity: O(9^n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int chocolatesPickupRecursion(int i, int j1,int j2,int n,int m, int[][] grid) {
 
 		if(j1<0 || j1>=m || j2<0 || j2>=m) return (int)-1e9;

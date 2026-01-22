@@ -5,14 +5,18 @@ public class ShortestCommonSupersequence {
 	public static void main(String[] args) {
 
 		String X = "abcd", Y = "xycd";
-		
+
 		System.out.println(X.length()+Y.length()-scs(X,Y,X.length(),Y.length()));
 	}
 
+	/*
+	 * Time Complexity: O(m*n)
+	 * Space Complexity: O(m*n)
+	 * */	
 	private static int scs(String x, String y, int m, int n) {
-		
+
 		int dp[][]=new int[m+1][n+1];
-		
+
 		for(int i=1;i<=m;i++)
 		{
 			for(int j=1;j<=n;j++)
@@ -27,17 +31,21 @@ public class ShortestCommonSupersequence {
 				}
 			}
 		}
-		
+
 		printScs(x,y,dp);
 		return dp[n][m];
 	}
 
+	/*
+	 * Time Complexity: O(m+n)
+	 * Space Complexity: O(m+n)
+	 * */
 	private static void printScs(String x, String y, int[][] dp) {
-		
+
 		int m=x.length(),n=y.length(),i=m,j=n;
-		
+
 		StringBuilder sb=new StringBuilder();
-		
+
 		while(i>0 && j>0)
 		{
 			if(x.charAt(i-1)==y.charAt(j-1))
@@ -57,21 +65,21 @@ public class ShortestCommonSupersequence {
 				j--;
 			}
 		}
-		
+
 		while(i>0)
 		{
 			sb.append(x.charAt(i-1));
 			i--;
 		}
-		
+
 		while(j>0)
 		{
 			sb.append(y.charAt(j-1));
 			j--;
 		}
-		
+
 		sb=sb.reverse();
-		
+
 		System.out.println(sb.toString());
 	}
 }

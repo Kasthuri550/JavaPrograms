@@ -9,26 +9,30 @@ public class AssignCookies {
 
 		int greed [] = {1, 2, 3},sz [] = {1, 1};
 
-		System.out.println( assignCookies(greed,sz));
-
+		System.out.println(assignCookies(greed,sz));
 	}
 
-	private static int assignCookies(int[] greed, int[] sz) {
-		
-		int n=sz.length,m=greed.length,l=0,r=0;
-		
+	/*
+	 * Time Complexity: O(mlogm +nlogn)
+	 * Space Complexity: O(1)
+	 * */	
+	private static int assignCookies(int[] greed, int[] cookie) {
+
+		int l=0,r=0,m=greed.length,n=cookie.length;
+
 		Arrays.sort(greed);
-		Arrays.sort(sz);
-		
-		while(l<n && r<m)
+		Arrays.sort(cookie);
+
+		while(l<m && r<n)
 		{
-			if(greed[r]<=sz[l])
+			if(greed[l]<=cookie[r])
 			{
-				r++;
+				l++;
 			}
-			l++;
+
+			r++;
 		}
-		
-		return r;
+
+		return l;
 	}
 }

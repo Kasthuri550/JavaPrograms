@@ -9,17 +9,20 @@ import java.util.Set;
 public class FourSum {
 
 	public static void main(String[] args) {
-		
-		 int[] nums = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
-	     int target = 9;
-	     
-//	     sum4brute(nums,target);
-	     sum4better(nums,target);
-	     sum4optimal(nums,target);
-	}
 
+		int[] nums = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
+		int target = 9;
+
+		sum4brute(nums,target);
+		sum4better(nums,target);
+		sum4optimal(nums,target);
+	}
+	/*
+	 * Time Complexity: O(n^3 * nlogn))
+	 * Space Complexity: O(no. of unique quadruplets)
+	 * */
 	private static void sum4optimal(int[] nums, int target) {
-		
+
 		List<List<Integer>> temp=new ArrayList<>();
 		int n=nums.length;
 		Arrays.sort(nums);
@@ -34,7 +37,7 @@ public class FourSum {
 				{
 					long sum=nums[i]+nums[j];
 					sum+=nums[k]+nums[l];
-					
+
 					if(sum<target)
 					{
 						k++;
@@ -49,22 +52,25 @@ public class FourSum {
 						temp.add(list);
 						k++;
 						l--;
-						
+
 						while(k<l && nums[k]==nums[k-1]) k++;
 						while(k<l && nums[l]==nums[l+1]) l--;
 					}
 				}
 			}
 		}
-		
+
 		System.out.println(temp);
 	}
-
+	/*
+	 * Time Complexity: O(n^3 * log(no of quadruplets))
+	 * Space Complexity: O(2*(no. of unique quadruplets))
+	 * */
 	private static void sum4better(int[] nums, int target) {
-		
+
 		Set<List<Integer>> temp=new HashSet<>();
 		int n=nums.length;
-		
+
 		for(int i=0;i<n;i++)
 		{
 			for(int j=i+1;j<n;j++)
@@ -74,7 +80,7 @@ public class FourSum {
 				{
 					long sum=nums[i]+nums[j]+nums[k];
 					long fourth=target-sum;
-					
+
 					if(hashSet.contains(fourth))
 					{
 						List<Integer> list=Arrays.asList(nums[i],nums[j],nums[k],(int)fourth);
@@ -85,17 +91,21 @@ public class FourSum {
 				}
 			}
 		}
-		
+
 		ArrayList<List<Integer>> arrayList=new ArrayList<>(temp);
-		 System.out.println(arrayList);
+		System.out.println(arrayList);
 	}
 
+	/*
+	 * Time Complexity: O(n^4 * log(no of quadruplets))
+	 * Space Complexity: O(2*(no. of unique quadruplets))
+	 * */
 	private static void sum4brute(int[] nums, int target) {
-		
+
 		Set<List<Integer>> temp=new HashSet<>();
-		
+
 		int n=nums.length;
-		
+
 		for(int i=0;i<n;i++)
 		{
 			for(int j=i+1;j<n;j++)
@@ -105,7 +115,7 @@ public class FourSum {
 					for(int l=k+1;l<n;l++)
 					{
 						long fourSum=nums[i]+nums[j]+nums[k]+nums[l];
-						
+
 						if(fourSum == target)
 						{
 							List<Integer> list=Arrays.asList(nums[i],nums[j],nums[k],nums[l]);
@@ -116,7 +126,7 @@ public class FourSum {
 				}
 			}
 		}
-		
+
 		ArrayList<List<Integer>> arrayList = new ArrayList<>(temp);
 		System.out.println(arrayList);
 	}

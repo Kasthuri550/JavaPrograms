@@ -20,8 +20,8 @@ public class MinimumCostToCutAStick {
 
 		Arrays.sort(newCuts);
 
-		//		System.out.println(minimumCostToCutAStickRecursion(1,c,newCuts));
-		//		System.out.println(minimumCostToCutAStickMemoization(c, newCuts));
+		System.out.println(minimumCostToCutAStickRecursion(1,c,newCuts));
+		System.out.println(minimumCostToCutAStickMemoization(c, newCuts));
 		System.out.println(minimumCostToCutAStickTabulation(c, newCuts));
 
 	}
@@ -29,28 +29,27 @@ public class MinimumCostToCutAStick {
 	 * Time Complexity: O(c^3)
 	 * Space Complexity: O(c^2)
 	 * */
-	private static int minimumCostToCutAStickTabulation(int c, int[] cuts) {
+	private static int minimumCostToCutAStickTabulation(int n, int[] cuts) {
 
-		int dp[][]=new int[c+2][c+2];
+		int dp[][]=new int[n+2][n+2];
 
-		for(int i=c;i>=1;i--)
+		for(int i=n;i>=1;i--)
 		{
-			for(int j=1;j<=c;j++)
+			for(int j=i;j<=n;j++)
 			{
 				if(i>j) continue;
 
 				int min=Integer.MAX_VALUE;
-
-				for(int ind=i;ind<=j;ind++)
+				for(int k=i;k<=j;k++)
 				{
-					int cost=cuts[j+1]-cuts[i-1]+dp[i][ind-1]+dp[ind+1][j];
+					int cost=cuts[j+1]-cuts[i-1]+dp[i][k-1]+dp[k+1][j];
 					min=Math.min(min,cost);
 				}
 				dp[i][j]=min;
 			}
 		}
 
-		return dp[1][c];
+		return dp[1][n];
 	}
 
 	private static int minimumCostToCutAStickMemoization(int c, int[] newCuts) {

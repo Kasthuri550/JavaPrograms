@@ -23,6 +23,8 @@ public class LongestStringChain {
 		Arrays.fill(dp,1);
 
 		Arrays.sort(words,(s1,s2)-> s1.length()-s2.length());
+		
+		System.out.println(Arrays.toString(words));
 
 		for(int index=0;index<n;index++)
 		{
@@ -62,6 +64,7 @@ public class LongestStringChain {
 				first++;
 			}
 		}
+
 		return first==string1.length() && second==string2.length();
 	}
 }

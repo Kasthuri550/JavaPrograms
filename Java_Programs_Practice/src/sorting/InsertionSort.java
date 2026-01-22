@@ -3,7 +3,7 @@ package sorting;
 public class InsertionSort {
 
 	public static void main(String[] args) {
-		
+
 		int arr[]={4, 1, 3, 9, 7};
 		insertionSortAsc(arr,arr.length);
 		System.out.println("Ascending order");
@@ -22,7 +22,7 @@ public class InsertionSort {
 	}
 
 	private static void insertionSortDesc(int[] arr, int n) {
-		
+
 		for(int i=0;i<n;i++)
 		{
 			int j=i;
@@ -36,8 +36,12 @@ public class InsertionSort {
 		}
 	}
 
+	/*
+	 * Time Complexity: O(n^2)
+	 * Space Complexity: O(1)
+	 * */
 	private static void insertionSortAsc(int[] arr, int n) {
-		
+
 		for(int i=0;i<n;i++)
 		{
 			int j=i;
@@ -49,7 +53,7 @@ public class InsertionSort {
 				j--;
 			}
 		}
-		
+
 	}
 
 }

@@ -21,7 +21,6 @@ public class LargestDivisibleSubset {
 		int dp[]=new int[n],hash[]=new int[n];
 
 		Arrays.fill(dp,1);
-		Arrays.fill(hash,1);
 
 		Arrays.sort(arr);
 

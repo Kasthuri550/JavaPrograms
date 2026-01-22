@@ -18,8 +18,8 @@ public class BurstBalloons {
 			newArr[i+1]=arr[i];
 		}
 
-		//		System.out.println(burstBalloonsRecursion(1,N,newArr));
-		//		System.out.println(burstBalloonsMemoization(N,newArr));
+		System.out.println(burstBalloonsRecursion(1,N,newArr));
+		System.out.println(burstBalloonsMemoization(N,newArr));
 		System.out.println(burstBalloonsTabulation(N, newArr));
 
 	}
@@ -27,13 +27,13 @@ public class BurstBalloons {
 	 * Time Complexity: O(n^3)
 	 * Space Complexity: O(n^2)
 	 * */
-	private static int burstBalloonsTabulation(int n, int[] arr) {
+	private static int burstBalloonsTabulation(int n, int[] nums) {
 
 		int dp[][]=new int[n+2][n+2];
 
 		for(int i=n;i>=1;i--)
 		{
-			for(int j=1;j<=n;j++)
+			for(int j=i;j<=n;j++)
 			{
 				if(i>j) continue;
 
@@ -41,8 +41,8 @@ public class BurstBalloons {
 
 				for(int ind=i;ind<=j;ind++)
 				{
-					int cost=arr[i-1]*arr[ind]*arr[j+1]+dp[i][ind-1]+dp[ind+1][j];
-					max=Math.max(max, cost);
+					int cost=nums[i-1]*nums[ind]*nums[j+1]+dp[i][ind-1]+dp[ind+1][j];
+					max=Math.max(max,cost);
 				}
 
 				dp[i][j]=max;

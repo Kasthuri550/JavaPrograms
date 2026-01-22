@@ -2,23 +2,27 @@ package stack;
 
 import java.util.Stack;
 
+/*
+ * Time Complexity:O(n)
+ * Space Complexity: O(n)
+ * */
 public class PostfixToPrefixExpression {
 
 	public static void main(String[] args) {
-		
+
 		String postfix="ABC/-AK/L-*";
-		
+
 		System.out.println(postfixToPrefix(postfix));
 	}
 
 	private static String postfixToPrefix(String postfix) {
-		
+
 		Stack<String> stack=new Stack<>();
-		
+
 		for(int i=0;i<postfix.length();i++)
 		{
 			char c=postfix.charAt(i);
-			
+
 			if(isOperator(c))
 			{
 				String operand2=stack.pop();
@@ -31,12 +35,12 @@ public class PostfixToPrefixExpression {
 				stack.push(Character.toString(c));
 			}
 		}
-		
+
 		return stack.pop();
 	}
 
 	private static boolean isOperator(char c) {
-		
+
 		return (c=='+'||c=='-'||c=='*'||c=='/'||c=='^');
 	}
 }

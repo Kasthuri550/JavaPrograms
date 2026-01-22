@@ -10,7 +10,6 @@ public class RomanToInteger {
 		String s = "MCMXCIV";
 		
 		romanToIntegerNum(s);
-
 	}
 
 	private static void romanToIntegerNum(String s) {

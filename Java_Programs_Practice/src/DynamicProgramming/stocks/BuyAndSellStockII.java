@@ -15,6 +15,10 @@ public class BuyAndSellStockII {
 		System.out.println(buyAndSellStockIISpaceOptimized(n, arr));
 	}
 
+	/*
+	 * Time Complexity: O(n)
+	 * Space Complexity: O(1)
+	 * */
 	private static long buyAndSellStockIISpaceOptimized(int n, long[] arr) {
 
 		long front[]=new long[2];
@@ -38,12 +42,16 @@ public class BuyAndSellStockII {
 
 				curr[buy]=profit;				
 			}
-			
+
 			front=curr.clone();
 		}
 		return curr[0];
 	}
 
+	/*
+	 * Time Complexity: O(n)
+	 * Space Complexity: O(n)
+	 * */
 	private static int buyAndSellStockIITabulation(int n, long[] arr) {
 
 		int dp[][]=new int[n+1][2];
@@ -70,6 +78,10 @@ public class BuyAndSellStockII {
 		return dp[0][0];
 	}
 
+	/*
+	 * Time Complexity: O(n)
+	 * Space Complexity: O(n)
+	 * */
 	private static long buyAndSellStockIIMemo(int index, int buy, int n, long[] arr) {
 
 		int dp[][]=new int[n][2];
@@ -108,6 +120,10 @@ public class BuyAndSellStockII {
 		return dp[index][buy];
 	}
 
+	/*
+	 * Time Complexity: O(2^n)
+	 * Space Complexity: O(n)
+	 * */
 	private static long buyAndSellStockIIBrute(int index, int buy, int n, long[] arr) {
 
 		if(index==n) return 0;

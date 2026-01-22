@@ -5,17 +5,17 @@ import java.util.Arrays;
 public class ReverseWords {
 
 	public static void main(String[] args) {
-		
+
 		String S = "i.like.this.program.very.much";
-		
+
 		reverseWords(S);
 	}
 
 	private static void reverseWords(String s) {
-		
+
 		String[] st = s.split("[.]");
 		String str="";
-		
+
 		int n = st.length;
 		for(int i=n-1;i>=0;i--)
 		{
@@ -25,10 +25,10 @@ public class ReverseWords {
 			}
 			else
 			{
-			str+=st[i]+".";
+				str+=st[i]+".";
 			}
 		}
-		
+
 		System.out.println(str);
 	}
 }
